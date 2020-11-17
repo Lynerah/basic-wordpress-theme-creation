@@ -15,27 +15,27 @@ Rendez-vous sur le site <www.localwp.com> , téléchargez gratuitement l’appli
 
 Lorsque l’exécutable est prêt cliquez dessus et suivez les consignes pour l’installation de l’application.  
 
-!(img/local_instal.png)
+![](/img/local_instal.png)
 
 Cliquez sur le bouton « *Créer un nouveau site* » et suivez les étapes.
 
-!(img/create_a_new_site.png) 
+![](/img/create_a_new_site.png) 
 
 Dans le cadre de ce workshop nous allons prendre les paramètres de base sans rentrer dans les détails.
 
-!(img/site_name.png)
-!(img/environement.png)
-!(img/name-password.png)
+![](/img/site_name.png)
+![](/img/environement.png)
+![](/img/name-password.png)
 
 Voila votre Wordpress est installé.
 
-!(img/your_site_Local.png)
+![](/img/your_site_Local.png)
 
 Pour ceux qui ont déjà fait un peu de PHP ou Wordpress, Local ne travaille pas avec PHPMyAdmin. Il propose **Adminer ou Sequel Pro**. Encore une fois par facilité, je vais utiliser Adminer.
 
 Maintenant il ne reste plus qu’a trouver où ont été installé nos fichiers Wordpress. Vous pouvez rapidement trouver l’information en haut sous le nom de votre site.
 
-!(img/doc_location.png)
+![](/img/doc_location.png)
 
 Analysons ensemble les différents documents et fichiers que nous trouvons. 
 On voit trois dossiers **wp-content, wp-admin et wp-includes**. Nous allons en parler juste après regardons d’abord quelques fichiers. 
@@ -258,13 +258,13 @@ Pour continuer plus aisément la création de notre thème on va avoir besoin d�
 Rendez-vous sur votre panneau administrateur, dirigez-vous vers **article -> catégorie** 
 Créez les catégories suivante: livre, BD, filme, série, documentaire, divers.
 
-!(img/create_categories)
+![](/img/create_categories.png)
 
 ##### Ajouter des pages 
 
 Direction **page -> ajouter** et créons une page accueil, blog et contact.
 
-!(img/create_page)
+![](/img/create_page.png)
 
 ##### Une page d'accueil pour le site 
 
@@ -277,7 +277,7 @@ Enregistrez les modifications.
 
 Pour créer des article facilement nous avons utiliser un extension, **FakerPress**
 
-!(img/fakerpress_plugin)
+![](/img/fakerpress_plugin.png)
 
 Nous allons devoir d’abord télécharger cette extension. Allez sur **Extensions -> Ajouter**, rechercher FakerPress, téléchargez et activez le.
 
@@ -287,8 +287,8 @@ Dans la bar latérale de votre panneau d’administration, vous devez voir appar
 
 *Inscrivez par exemple 20 articles, cette année, type de contenu article, l’auteur, taxonomie article, quantité 1.*
 
-!(img/setting_fakerpress_2)
-!(img/setting_fakerpress_3)
+![](/img/setting_fakerpress_2.png)
+![](/img/setting_fakerpress_3.png)
 
 Cliquez sur générer.
 
@@ -298,14 +298,14 @@ Vous pouvez vous rendre dans **Articles -> Tous les articles** pour les voir.
 
 Cette partie est très bien expliqué par Capitaine WP : <https://capitainewp.io/formations/developper-theme-wordpress/template-hierarchy>
 
-!(img/hierarchy_template)
+![](/img/hierarchy_template.png)
 
 ##### Les fichiers template
 
 Nous allons maintenant créer l’ensemble de nos fichiers template.
 Créons les fichiers **archive.php, front-page.php, home.php, page.php, single.php**.
 
-!(img/create_template_page)
+![create_template_page](/img/create_template_page.png)
 
 Pour chacun on mets le strict minimum:
 
