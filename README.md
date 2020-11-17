@@ -7,11 +7,11 @@ C'est dans le cadre de ma formation en Web Developpement que j'ai du réaliser c
 
 Rendez-vous sur le site <www.localwp.com> , téléchargez gratuitement l’application.
 
-![local](/img/local.png)
+![](/img/local.png)
 
-![Download](/img/download_local.png)
+![](/img/download_local.png)
 
-![form](/img/download_form.png)
+![](/img/download_form.png)
 
 Lorsque l’exécutable est prêt cliquez dessus et suivez les consignes pour l’installation de l’application.  
 
@@ -75,15 +75,15 @@ Pour cela rendez-vous dans **wp-content -> thèmes**. Là nous allons créer un 
 
 Dans index.php écrivez un titre et sauvez :
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1>Salut la compagnie</h1>
-</body>
-</html>
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>Salut la compagnie</h1>
+	</body>
+	</html>
 
 Si nous allons maintenant sur notre page d'administration dans thème (wordpress) nous voyons notre thème apparaître avec un message disant qu’il est corrompu.
 
@@ -93,10 +93,11 @@ Retournons dans notre éditeur et créons un nouveau fichier **style.css**, dans
 
 Ici, j’ai choisis de mettre le nom du thème, l’auteur et une description (*attention il ne doit pas avoir d’espace entre le nom du critère et les « : »*).
 
-`Theme Name: First Theme
-Author: Jeanne Dark
-Description: Mon premier thème !
-*/`
+	/*
+	Theme Name: First Theme
+	Author: Jeanne Dark
+	Description: Mon premier thème !
+	*/
 
 Sauvegardons et voyons le résultat.
 
@@ -110,44 +111,44 @@ Bon pour l’instant il n’y pas grand choses dedans. Allons plus loin et compl
 
 Retournons sur notre fichier **index.php** et complétons notre structure de page basique :
 
-`<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-	<title>Workshop</title>
-</head>
-<body>
-	<h1>Salut la compagnie</h1>
-</body>
-</html>`
+	<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<title>Workshop</title>
+	</head>
+	<body>
+		<h1>Salut la compagnie</h1>
+	</body>
+	</html>
 
 Le fait est que nous allons probablement pas avoir que une page sur notre site. Donc afin d’avoir un code DRY c’est-a-dire sans répétition inutile de code. On va créer deux fichiers, **header.php et footer.php** dans lesquels on va mettre une partie du code. Puis nous viendrons appeler ces fichiers dans index.php .
 
 Dans un fichier header.php couper/coller la premier partie du code jusque `<body>` .
 
-`<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-	<title>Workshop</title>
-</head>
-<body>`
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<title>Workshop</title>
+	</head>
+	<body>
 
 Créez un second fichier footer.php avec la fin du code a partir de `</body>`
 
-`</body>
-</html>`
+	</body>
+	</html>
 
 Dans la plupart des cas, ces deux parties là seront identique à toutes les pages du site.
 
 Maintenant comment faire pour les intégrer dans notre index.php?
 Nous allons utiliser une fonction PHP bien pratique **« get_header » et « get_footer »**.
 
-`<?php get_header(); ?>
-	<h1>Hello World</h1>
-<?php get_footer(); ?>`
+	<?php get_header(); ?>
+		<h1>Hello World</h1>
+	<?php get_footer(); ?>
 
 Vérifions si notre code fonctionne toujours. Ouvrez le code source de la page dans votre console  afin de voir si votre header et footer sont bien appelés. 
 
@@ -155,15 +156,15 @@ Vérifions si notre code fonctionne toujours. Ouvrez le code source de la page d
 
 Revenons à notre header.php, nous créons un thème wordpress nous devons donc pouvoir communiquer avec notre CMS. Pour cela nous allons ajouter des **fonctions en php**.
 
-`<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>  
-    <?php wp_body_open(); ?>`
+	<!DOCTYPE html>
+	<html <?php language_attributes(); ?>>
+	<head>
+	    <meta charset="<?php bloginfo('charset'); ?>">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	    <?php wp_head(); ?>
+	</head>
+	<body <?php body_class(); ?>>  
+	    <?php wp_body_open(); ?>
 
 Faisons un petit tour d’horizon de ces quelques fonctions.
 
@@ -188,9 +189,9 @@ Cette fonction permet à des extension d’écrire du code au début du body.
 
 Dans footer.php, nous allons mettre la fonction `<?php wp_footer(); ?>` qui équivaux wp_head() mais pour le footer.
  
-`<?php wp_footer(); ?>
-</body>
-</html>`
+		<?php wp_footer(); ?>
+	</body>
+	</html>
 
 ##### Fichier function.php
 
@@ -202,9 +203,9 @@ Commençons par deux choses toute simple:
 
 2. Activer l’ajout automatique de la balise `<title>` dans l’en-tête. Par défaut on vois alors apparaitre le titre du site et le slogan dans l’onglet du navigateur. Nous pouvons modifier ces données dans le tableau d’administration: Réglages > Général.
 
-`<?php 
-add_theme_support( 'post-thumbnails' );
-add_theme_support( 'title-tag' );`
+	<?php 
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'title-tag' );
 
 Comme vous pouvez le constater je n’ai pas fermé la balise php, car dans les documents php on ne ferme pas la balise.
 
@@ -212,11 +213,11 @@ Nous le ferons pas ici mais nous pouvons aller beaucoup plus loin dans le régla
 
 La seule chose que nous allons quand même encore faire est de rajouter une feuille de style de Bootstrap pour nous facilité un peu la tache. On va donc utiliser un hooks:
 
-`function myfirsttheme_register_assets(){
-	wp_register_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css');
-	wp_enqueue_style('bootstrap');
-}
-add_action('wp_enqueue_scripts', 'myfirsttheme_register_assets');`
+	function myfirsttheme_register_assets(){
+		wp_register_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css');
+		wp_enqueue_style('bootstrap');
+	}
+	add_action('wp_enqueue_scripts', 'myfirsttheme_register_assets');
 
 On appelle ici la fonction **wp_register_style()** qui comporte plusieurs paramètres:
 1. **$handle** : on inscrit au premier paramètre le nom unique du fichier css.
@@ -233,23 +234,23 @@ Profitons de l’ajout de ce style pour mettre une div avec une class container 
 
 **header.php**
 
-`<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="<?php bloginfo('charset'); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-	<?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
-	<?php wp_body_open(); ?>
-	<div class="container">`
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="<?php bloginfo('charset'); ?>">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<?php wp_head(); ?>
+	</head>
+	<body <?php body_class(); ?>>
+		<?php wp_body_open(); ?>
+		<div class="container">
 
 Nous allons fermer cette div dans **footer.php**
 
-`	</div>
-	<?php wp_footer(); ?>
-</body>
-</html>`
+		</div>
+		<?php wp_footer(); ?>
+	</body>
+	</html>
 
 Pour continuer plus aisément la création de notre thème on va avoir besoin d’y *ajouter du contenu*. Nous allons donc ajouter des catégories, des pages et générer des articles.
 
@@ -309,32 +310,32 @@ Créons les fichiers **archive.php, front-page.php, home.php, page.php, single.p
 
 Pour chacun on mets le strict minimum:
 
-`<?php get_header(); ?>
-	<h1>titre de la page</h1>
-<?php get_footer(); ?>`
+	<?php get_header(); ?>
+		<h1>titre de la page</h1>
+	<?php get_footer(); ?>
 
 ##### Les boucles Wordpress
 
 La boucle ce retrouve pratiquement sur tout les template et aura toujours la même forme.
 
-`<?php 
-if ( have_posts() ) : 
-    while ( have_posts() ) : the_post(); 
-        // Display post content
-    endwhile; 
-endif; 
-?>`
+	<?php 
+	if ( have_posts() ) : 
+	    while ( have_posts() ) : the_post(); 
+	        // Display post content
+	    endwhile; 
+	endif; 
+	?>
 
 C’est grâce à cette boucle qu’on va pouvoir aller chercher les données qui ont été entrées par l’interface administrateur.
 
 Commençons par modifier notre fichier **front-page.php**, qui correspond à notre page d’accueil.
 
-`<?php get_header(); ?>
-	<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
-    	<h1><?php the_title(); ?></h1>
-    	<?php the_content(); ?>
-	<?php endwhile; endif; ?>
-<?php get_footer(); ?>`
+	<?php get_header(); ?>
+		<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+	    	<h1><?php the_title(); ?></h1>
+	    	<?php the_content(); ?>
+		<?php endwhile; endif; ?>
+	<?php get_footer(); ?>
 
 Comme vous le constaterez dans ce code de nouvelles fonctions apparaissent.
 
@@ -345,20 +346,20 @@ Il existe plusieurs templates tags que vous retrouverez ici : <https://developer
 
 Maintenant créons un boucle pour le blog. Mettez le code ci-dessous dans **archive.php et home.php**.
 
-`<?php get_header(); ?>
-	<h1>Le blog</h1>
-	<?php if (have_posts()): while(have_posts()): the_post();?>
-		<article class="post">
-			<h2><?php the_title();?></h2>
-			<?php the_post_thumbnail();?>
-			<p class="post_meta">
-				Publié le <?php the_time(get_option('date_format'));?> par <?php the_author();?>
-			</p>
-			<?php the_excerpt();?>
-			<a href="<?php the_permalink();?>">Lire la suite</a>
-		</article>
-	<?php endwhile; endif;?>
-<?php get_footer(); ?>`
+	<?php get_header(); ?>
+		<h1>Le blog</h1>
+		<?php if (have_posts()): while(have_posts()): the_post();?>
+			<article class="post">
+				<h2><?php the_title();?></h2>
+				<?php the_post_thumbnail();?>
+				<p class="post_meta">
+					Publié le <?php the_time(get_option('date_format'));?> par <?php the_author();?>
+				</p>
+				<?php the_excerpt();?>
+				<a href="<?php the_permalink();?>">Lire la suite</a>
+			</article>
+		<?php endwhile; endif;?>
+	<?php get_footer(); ?>
 
 Allons voir notre page. Pour cela nous pouvons soit passer par le panneau admin **Pages -> Toutes les pages** et afficher la page blog soit ajouter si notre page s’appelle blog **/blog/** à la suite de notre url du site.
 
@@ -377,27 +378,27 @@ La structure des premaliens peut être gérée dans **Réglages -> Permaliens**.
 
 Nous pouvons ajouter un peu de mise en forme avec *Bootstrap*.
 
-`<article class="post">
-	<div class="card" style="width: 18rem;">
-		<?php if ( has_post_thumbnail() ): ?>
-			<?php the_post_thumbnail(‘medium’, [ ‘classe’ => ‘card-img-top’, 				‘alt’ => ‘’ ]); ?>
+	<article class="post">
+		<div class="card" style="width: 18rem;">
+			<?php if ( has_post_thumbnail() ): ?>
+				<?php the_post_thumbnail(‘medium’, [ ‘classe’ => ‘card-img-top’, 				‘alt’ => ‘’ ]); ?>
+				</div>
+			<?php endif; ?>
+			<div class="card-body">
+				<h5 class="card-title"><?php the_title(); ?></h5>
+				<div class="card-text"><?php the_excerpt(); ?></div>
+				<a href="<?php the_permalink(); ?>" class="btn btn-primary 						post__link">Lire la suite</a>
 			</div>
-		<?php endif; ?>
-		<div class="card-body">
-			<h5 class="card-title"><?php the_title(); ?></h5>
-			<div class="card-text"><?php the_excerpt(); ?></div>
-			<a href="<?php the_permalink(); ?>" class="btn btn-primary 						post__link">Lire la suite</a>
 		</div>
-	</div>
-</article>`
+	</article>
 
 ##### Barre de navigation
 
 Pour finir ajoutons une *barre de navigation*. Pour gérer les menus nous retournons sur notre panneau d’administration dans **Apparence -> Menus**. Pour l’instant cette partie n’est pas visible, nous aller déclarer le menu dans function.php
 
-`register_nav_menus( array(
-	'main' => 'Menu Principal',
-) );`
+	register_nav_menus( array(
+		'main' => 'Menu Principal',
+	) );
 
 Plaçons le menus dans **header.php** avec la fonction **wp_nav_menu()**
 
@@ -407,24 +408,24 @@ Enfin nous pouvons aller créer ce menu dans WordPress.
  
 Et oui, il est plutot basique, mais ajoutons un peu de Bootstrap .
 
-`<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
-    <header class="header">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href=“<?php bloginfo( 'url' ); ?>“><?php bloginfo( 'name' ); ?></a>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<?php wp_nav_menu( array( 'theme_location' => 'main', 'container' => 'fals', 'menu_class' => 'navbar-nav mr-auto' ) ); ?>
-			</div>
-		</nav>
-	</header>
-    <div class="container">`
+	<!DOCTYPE html>
+	<html <?php language_attributes(); ?>>
+	<head>
+	    <meta charset="<?php bloginfo('charset'); ?>">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	    <?php wp_head(); ?>
+	</head>
+	<body <?php body_class(); ?>>
+	    <?php wp_body_open(); ?>
+	    <header class="header">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href=“<?php bloginfo( 'url' ); ?>“><?php bloginfo( 'name' ); ?></a>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<?php wp_nav_menu( array( 'theme_location' => 'main', 'container' => 'fals', 'menu_class' => 'navbar-nav mr-auto' ) ); ?>
+				</div>
+			</nav>
+		</header>
+	    <div class="container">
 
 ---
 
