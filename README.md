@@ -75,7 +75,7 @@ Pour cela rendez-vous dans **wp-content -> thèmes**. Là nous allons créer un 
 
 Dans index.php écrivez un titre et sauvez :
 
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -83,7 +83,7 @@ Dans index.php écrivez un titre et sauvez :
 <body>
 	<h1>Salut la compagnie</h1>
 </body>
-</html>`
+</html>
 
 Si nous allons maintenant sur notre page d'administration dans thème (wordpress) nous voyons notre thème apparaître avec un message disant qu’il est corrompu.
 
