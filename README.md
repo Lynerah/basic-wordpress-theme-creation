@@ -7,9 +7,11 @@ C'est dans le cadre de ma formation en Web Developpement que j'ai du réaliser c
 
 Rendez-vous sur le site <www.localwp.com> , téléchargez gratuitement l’application.
 
-!(img/local)
-!(img/download_local)
-!(img/download_form)
+(img/local)
+
+(img/download_local)
+
+(img/download_form)
 
 Lorsque l’exécutable est prêt cliquez dessus et suivez les consignes pour l’installation de l’application.  
 
