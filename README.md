@@ -15,27 +15,27 @@ Rendez-vous sur le site <www.localwp.com> , téléchargez gratuitement l’appli
 
 Lorsque l’exécutable est prêt cliquez dessus et suivez les consignes pour l’installation de l’application.  
 
-!(img/local_instal)
+!(img/local_instal.png)
 
 Cliquez sur le bouton « *Créer un nouveau site* » et suivez les étapes.
 
-!(img/create_a_new_site) 
+!(img/create_a_new_site.png) 
 
 Dans le cadre de ce workshop nous allons prendre les paramètres de base sans rentrer dans les détails.
 
-!(img/site_name)
-!(img/environement)
-!(img/name-password)
+!(img/site_name.png)
+!(img/environement.png)
+!(img/name-password.png)
 
 Voila votre Wordpress est installé.
 
-!(img/your_site_Local)
+!(img/your_site_Local.png)
 
 Pour ceux qui ont déjà fait un peu de PHP ou Wordpress, Local ne travaille pas avec PHPMyAdmin. Il propose **Adminer ou Sequel Pro**. Encore une fois par facilité, je vais utiliser Adminer.
 
 Maintenant il ne reste plus qu’a trouver où ont été installé nos fichiers Wordpress. Vous pouvez rapidement trouver l’information en haut sous le nom de votre site.
 
-!(img/doc_location)
+!(img/doc_location.png)
 
 Analysons ensemble les différents documents et fichiers que nous trouvons. 
 On voit trois dossiers **wp-content, wp-admin et wp-includes**. Nous allons en parler juste après regardons d’abord quelques fichiers. 
